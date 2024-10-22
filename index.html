@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Monitoring System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+</head>
+<body>
+    <nav>
+        <h1>Smart Automation</h1>
+    </nav>
+
+    <div class="container">
+        <section class="sensor-data">
+            <div class="card">
+                <h2>Temperature</h2>
+                <div class="icon"><i class="fas fa-thermometer-half"></i></div>
+                <p><span id="temperature">--</span>°C</p>
+            </div>
+            <div class="card">
+                <h2>CO2 Level</h2>
+                <div class="icon"><i class="fas fa-cloud"></i></div>
+                <p><span id="co2">--</span> ppm</p>
+            </div>
+        </section>
+
+        <section class="controls">
+            <h2>Control Panel</h2>
+            <!-- Search bar for connected devices -->
+        <div class="search-container">
+            <input type="text" id="deviceSearch" onkeyup="filterDevices()" placeholder="Search for Other Devices" />
+            <div class="dropdown">
+                <ul id="deviceList">
+                    <!-- Devices will be dynamically populated here -->
+                    <li class="device">Device 1</li>
+                    <li class="device">Device 2</li>
+                    <li class="device">Device 3</li>
+                </ul>
+            </div>
+        </div>
+        <!-- New buttons for device control -->
+         <div id="controlButtons" style="display: none;"> <!-- Initially hidden -->
+            <button id="turnOn">Turn On</button>
+            <button id="turnOff">Turn Off</button>
+        </div>
+
+            <h3>Recent Device</h3>
+
+            <button id="lightOn">Turn On</button>
+            <button id="lightOff">Turn Off</button>
+        </section>
+
+
+    <div id="feedbackMessage" style="display: none; color: green; text-align: center;"></div>
+
+    <h1>Patient Monitoring Data</h1>
+    <div id="data"></div>
+
+    <script>
+        const ws = new WebSocket('ws://localhost:8080');
+
+        ws.onopen = () => {
+            console.log('WebSocket connection established');
+        };
+
+        ws.onmessage = (event) => {
+            const dataDiv = document.getElementById('data');
+            dataDiv.innerHTML += `<p>Sensor Value: ${event.data}</p>`;
+        };
+
+        ws.onclose = () => {
+            console.log('WebSocket connection closed');
+        };
+    </script>
+
+    
+
+
+
+
+        <section class="chart-section">
+            <h2>Real-Time Sensor Data</h2>
+            <canvas id="sensorChart"></canvas>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

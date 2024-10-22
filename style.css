@@ -1,0 +1,155 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+nav {
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.sensor-data {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 45%;
+}
+
+.card h2 {
+    margin-bottom: 10px;
+}
+
+.card .icon {
+    font-size: 50px;
+    margin-bottom: 15px;
+    color: #007bff;
+}
+
+.controls {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.chart-section {
+    text-align: center;
+}
+
+canvas {
+    width: 80%;
+    height: 400px;
+}
+/*-----------------------------------*/
+.search-container {
+    position: relative;
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.search-container input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.dropdown {
+    position: absolute; /* Changed to absolute for better control */
+    z-index: 1000; /* Ensures it appears on top */
+    width: 100%; /* Full width of the search input */
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: none; /* Initially hidden */
+}
+
+.dropdown ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown ul li {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown ul li:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown ul li.device {
+    display: block; /* Ensure devices are displayed */
+}
+
+#controlButtons {
+    text-align: center; /* Center align the buttons */
+    margin-top: 10px;  /* Space above the buttons */
+}
+
+#controlButtons button {
+    padding: 10px 15px; /* Padding for buttons */
+    font-size: 16px;    /* Font size */
+    margin: 0 10px;     /* Space between buttons */
+    border: none;       /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #4CAF50; /* Green background */
+    color: white;       /* White text */
+    cursor: pointer;    /* Pointer cursor on hover */
+}
+
+#controlButtons button {
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
+}
+
+#controlButtons button:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+
+
+
